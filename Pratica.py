@@ -1,4 +1,6 @@
 import numpy as np #importa numpy, mas podemos chamar digitando apenas np
+from numpy.linalg import inv
+
 
 #cria matriz adiagonal de acordo com o vetor, com os elementos dele
 def matrizDiagonal(vetor):
@@ -153,11 +155,82 @@ def somaEscalarRaiz(matriz, escalar):
         for n in range(len(matriz[0])):
             matriz[m][n]+=escalar
     return matriz
-                        
+
+def multiplicacaoEscalar(vetor, multiplicando):
+    return (vetor*multiplicando)
+
+def somaVetor(vetor, vetor1):
+    return (vetor+vetor1)
+
+#multiplica elementos NP
+def multiplicacaoVetor(vetor, vetor1):
+    if(len(vetor)==len(vetor1)):
+        return(vetor*vetor1)
+    return null
+
+
+def multiplicacaoMatrizes (m1, m2):
+    return (np.multiply(A,B))
+
+"""
+Só podemos multiplicar matrizes quando o numero
+de colunas da primeira for igual ao de linhas da
+segunda
+
+e m1*m2 != m2 * 
+"""
+def produtoMatrizes(m1,m2):
+    return (np.dot(m1,m2))
+
+
+def produtoMatrizesRaiz(m1,m2):
+    retorno= np.array(())
+    aux=[]
+    soma=0
+    if(type(m1[0])==list):
+        if(len(m1[0])!=len(m2)):
+            return None
+        else:
+            for m in range(len(m1)):
+                for n in range(len(m1[m])):
+                    for o in range(len(m1[0])):
+                        soma+=m1[m][n]+m2[n][m]
+                        aux.append(soma)
+                    soma=0
+                    aux=[]
+                retorno.append(aux)
+            return retorno
+
+"""
+traço matriz = soma dos elementos da diagonal
+principal
+"""
+def tracoMatriz(matriz):
+    return (np.trace(matriz))
+
+def tracoMatrizRaiz(matriz):
+    soma=0
+    for m in range(len(matriz)):
+        if(type(matriz[0])!=list or type(matriz[0])!=int or type(matriz[0])!=float):
+            for n in range(len (matriz[0])):
+                if(n==m):
+                    soma+=matriz[m][n]
+        else:
+            soma=matriz[0]
+    return soma
+
+def inversa(matriz):
+    return (np.inv(a))
     
-                
-    
-vetor = [[1,2],[3,4]]
+
+
+vetor = [1,2,3,4]
+vetor1 = [1,2,3,4]
+np1=np.array([[2],[1],[2],[3],[4]])
+np2=np.array([14])
+matrizao=np.array(([1,3,2],
+                  [4,3,2],
+                  [5,9,2]))
 #vetor=[[1],[2],[3],[4]]
 matrizDiagonal([1,2,4,5])
 matrizDiagonalRaiz([1,2,4,5])
@@ -177,4 +250,12 @@ matrizColunaRaiz(vetor)
 #validacaoPropriedades(A,B)
 
 #print(somaEscalar(vetor, 2)
-print(somaEscalarRaiz(vetor, 2))
+#print(somaEscalarRaiz(vetor, 2))
+
+#print(multiplicacaoVetor(np1,np2))
+#print(produtoMatrizesRaiz(np1, np2))
+
+#print(tracoMatriz(matrizao))
+#print(tracoMatrizRaiz(matrizao))
+
+print(inv(matrizao))
