@@ -1,6 +1,6 @@
 import numpy as np #importa numpy, mas podemos chamar digitando apenas np
 from numpy.linalg import inv
-
+from numpy.linalg import det
 
 #cria matriz adiagonal de acordo com o vetor, com os elementos dele
 def matrizDiagonal(vetor):
@@ -221,6 +221,16 @@ def tracoMatrizRaiz(matriz):
 
 def inversa(matriz):
     return (np.inv(a))
+
+def retornaLinha(linha, matriz):
+    return matriz[linha-1,:]
+
+from numpy.linalg import det
+def determinante(matriz):
+    return np.linalg.det(matriz)
+"""
+O determinante precisa ser diferente de zero para ser inversível
+"""
     
 
 
@@ -258,4 +268,6 @@ matrizColunaRaiz(vetor)
 #print(tracoMatriz(matrizao))
 #print(tracoMatrizRaiz(matrizao))
 
-print(inv(matrizao))
+#print(inv(matrizao))
+#print (retornaLinha(1, matrizao))
+print(determinante(matrizao))
