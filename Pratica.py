@@ -233,7 +233,8 @@ O determinante precisa ser diferente de zero para ser inversível
 """
     
 
-
+a=[[0,1,2,0],[1,3,4,5],[-2,0,-1,1],[1,-1,0,0]]
+a3=[[2,3,1],[0,1,1],[2,1,2]]
 vetor = [1,2,3,4]
 vetor1 = [1,2,3,4]
 np1=np.array([[2],[1],[2],[3],[4]])
@@ -270,4 +271,4 @@ matrizColunaRaiz(vetor)
 
 #print(inv(matrizao))
 #print (retornaLinha(1, matrizao))
-print(determinante(matrizao))
+print(determinante(a3))
